@@ -1,0 +1,480 @@
+
+[id="header"] {
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+[id="header"] h1 {
+    text-align: center;
+    background-color: lawngreen;
+    -moz-border-radius-topright: 20em;
+    border-style: solid;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+[id="header"] h3 {
+    font-weight: bold;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-style: solid;
+    background-color: lawngreen;
+}
+
+[id="footer"] {
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+[id="footer"] h1 {
+
+    text-align: center;
+    background-color: lawngreen;
+    border-style: solid;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+[id="footer"] h3 {
+    font-weight: bold;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-style: solid;
+    background-color: lawngreen;
+}
+
+[id="nav"] {
+    background-color: lawngreen;
+    border-style: solid;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: auto;
+    list-style-type: none;
+
+}
+
+[id="nav"] ul:hover {
+    list-style-type: none;
+    color: white;
+
+}
+
+[id="nav"] li:hover {
+    list-style-type: none;
+    color: white;
+
+}
+
+[id="nav"] ul{
+    list-style-type: none;
+
+}
+
+[id="nav"] li{
+    list-style-type: none;
+
+}
+
+[id="LOGOUT"] {
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+    display: block;
+    text-align: right;
+    list-style-type: none;
+
+}
+
+[id="LOGOUT"] H2:hover{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    display: block;
+    text-align: right;
+    list-style-type: none;
+
+}
+
+[id="UL-TITLE"] {
+    background-color: black;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    height: 10%;
+    list-style-type: none;
+}
+
+[id="section1"] ul {
+    list-style-type: square;
+    background-color: black;
+}
+
+[id="section1"] li{
+    background-color: whitesmoke;
+    border-bottom: 1px solid #f9f9f9;
+    border-top: 1px solid #f9f9f9;
+    border-bottom-color: inherit;
+    border-top-color: inherit;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 10%;
+}
+
+[id="section1"] li:hover {
+    background-color: lightgrey;
+    border-bottom: 1px solid #f9f9f9;
+    border-top: 1px solid #f9f9f9;
+    border-bottom-color: inherit;
+    border-top-color: inherit;
+    color: lawngreen;
+    font-size: medium;
+    font-weight: bold;
+    text-align: left;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 10%;
+}
+
+
+[id="NAME"] {
+    width: 15%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+    border: none;
+}
+
+[id="NAME-TITLE"] {
+    width: 15%;
+    display: inline-block;
+    color: white;
+    font-size: large;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    border: solid;
+}
+
+[id="IP"] {
+    width: 12.5%;
+    float: left;
+    color: black;
+    font-size: small;
+    margin: auto;
+}
+
+[id="IP-TITLE"] {
+    width: 12.5%;
+    float: left;
+    color: white;
+    font-size: large;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    border: solid;
+}
+
+[id="EMAIL"] {
+    width: 25%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+}
+
+[id="EMAIL-TITLE"] {
+    width: 25%;
+    display: inline-block;
+    color: white;
+    font-size: large;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    border: none;
+}
+
+[id="ENABLE"] {
+    width: 15%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+}
+
+
+[id="ENABLE-TITLE"] {
+    width: 15%;
+    display: inline-block;
+    color: white;
+    font-size: large;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    border:none;
+}
+
+[id="STATUS"] {
+    width: 10%;
+    display: inline-block;
+    text-align: left;
+    color: red;
+    background-color: yellow;
+    font-size: small;
+    margin: auto;
+}
+
+[id="STATUS-TITLE"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: large;
+    margin: auto;
+    border: none;
+}
+
+[id="STATUSCHECKED"] {
+    width: 10%;
+    display: inline-block;
+    text-align: left;
+    color: black;
+    background-color: lawngreen;
+    font-size: small;
+    margin: auto;
+}
+
+[id="STATUS-MESSAGE"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: red;
+    background-color: yellow;
+    font-size: small;
+    margin: auto;
+}
+
+
+[id="BACKUP-STATUS-TITLE"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: large;
+    margin: auto;
+    border: none;
+}
+
+[id="MESSAGE-SENT"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    background-color: lawngreen;
+    font-size: small;
+    margin: auto;
+}
+
+[id="BACKUP-FAILED"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    background-color: red;
+    font-size: small;
+    margin: auto;
+}
+
+[id="STATUS-EMAIL"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: red;
+    background-color: yellow;
+    font-size: small;
+    margin: auto;
+}
+
+[id="STATUS-EMAIL-TITLE"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: large;
+    margin: auto;
+    border: none;
+}
+
+[id="EMAIL-SENT"] {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    color: black;
+    background-color: lawngreen;
+    font-size: small;
+    margin: auto;
+}
+
+[id="section1"] {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    line-height:30px;
+    width: 90%;
+    height:auto;
+    padding:10px;
+    background-color: black;
+    border-style: solid;
+    color: lawngreen;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+
+}
+
+
+[id="section1"] h1 {
+    text-align: center;
+    color: lawngreen;
+}
+
+[id="section1"] h2 {
+    text-align: center;
+    color: lawngreen;
+}
+
+[id="section2"] {
+    margin: auto;
+    line-height:30px;
+    width: 90%;
+    height:50%;
+    padding:10px;
+    background-color: forestgreen;
+    border-style: solid;
+    color: lawngreen;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+
+}
+
+[id="section2"] h1 {
+    text-align: center;
+    color: lawngreen;
+}
+
+[id="MESSAGEBOX"] {
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+
+[id="BUTTON"] {
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    margin-left: 95%;
+}
+
+[id="section2"] h2 {
+    text-align: center;
+    color: lawngreen;
+}
+
+[id="LOGIN"] {
+    display: inline-block;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+[id="NEW-USER"] {
+    display: inline-block;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+[id="NEW-USER"] ul{
+    display: inline-block;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+[id="NEW-USER"] li{
+    display: inline-block;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+[id="ADMIN-EMAIL"] {
+    width: 20%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+    border: none;
+}
+
+[id="ADMIN-PASSWORD"] {
+    width: 20%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+    border: none;
+}
+
+[id="ADMIN-FIRSTNAME"] {
+    width: 20%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+    border: none;
+}
+
+[id="ADMIN-TOWN"] {
+    width: 25%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: auto;
+    border: none;
+}
+
+[id="ADMIN-DELETE"] {
+    width: 10%;
+    display: inline-block;
+    color: black;
+    font-size: small;
+    margin: 2px;
+    border: none;
+}
