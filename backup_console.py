@@ -23,8 +23,8 @@ import threading
 print "loading global variables!!"
 time.sleep(1)
 ftpserver = "localhost"
-ftpuser = "benwillett"
-ftppass = "Burton!123"
+ftpuser = ""
+ftppass = ""
 user = "test"
 pwd1 = "cisco"
 #pwd2 = "privilege_exec_mode_password"
