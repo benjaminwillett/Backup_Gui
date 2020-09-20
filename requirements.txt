@@ -20,7 +20,7 @@ pyparsing==2.1.10
 pysmi==0.0.7
 PySocks==1.5.7
 pytz==2016.6.1
-requests==2.10.0
+requests==2.20.0
 selenium==3.7.0
 six==1.10.0
 textmagic==2.0.3
