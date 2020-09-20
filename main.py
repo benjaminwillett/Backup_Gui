@@ -97,7 +97,7 @@ users['TOWN'] = []
 users['COUNTRY'] = []
 users['POSTCODE'] = []
 usersFile = "users.xlsx"
-userFilePath = "/Users/benwillett/Desktop/ITWork/DET/UAT/"
+userFilePath = "/"
 
 try:
     message = "importing users from spreadsheet"
@@ -338,7 +338,7 @@ def fileImport():
     fileImport = request.form['IMPORT']
 
     spreadsheet = fileImport
-    spreadsheetPath = "/Users/benwillett/Desktop/ITWork/DET/UAT/"
+    spreadsheetPath = "/Users/benwillett/PycharmProjects/Backup_Gui/"
     print(spreadsheet)
 
     print(fileImport)
