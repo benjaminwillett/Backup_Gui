@@ -103,7 +103,7 @@ try:
     message = "importing users from spreadsheet"
     print (message)
     time.sleep(1)
-    usersWb = openpyxl.load_workbook(userFilePath + usersFile)
+    usersWb = openpyxl.load_workbook(usersFile)
     print"loaded"
     usersSheet = usersWb.get_sheet_by_name("Sheet 1")
     print"sheet 1"
