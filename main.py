@@ -113,15 +113,16 @@ except:
 
 
 userRowCount = 0
-columnA = usersSheet.columns[0]
-columnB = usersSheet.columns[1]
-columnC = usersSheet.columns[2]
-columnD = usersSheet.columns[3]
-columnE = usersSheet.columns[4]
-columnF = usersSheet.columns[5]
-columnG = usersSheet.columns[6]
-columnH = usersSheet.columns[7]
-columnI = usersSheet.columns[8]
+generator = usersSheet
+columnA = generator.columns[0]
+columnB = generator.columns[1]
+columnC = generator.columns[2]
+columnD = generator.columns[3]
+columnE = generator.columns[4]
+columnF = generator.columns[5]
+columnG = generator.columns[6]
+columnH = generator.columns[7]
+columnI = generator.columns[8]
 
 
 for i in range(0, usersSheet.max_row):
