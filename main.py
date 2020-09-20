@@ -97,13 +97,13 @@ users['TOWN'] = []
 users['COUNTRY'] = []
 users['POSTCODE'] = []
 usersFile = "users.xlsx"
-userFilePath = ""
+userFilePath = "/app/"
 
 try:
     message = "importing users from spreadsheet"
     print (message)
     time.sleep(1)
-    usersWb = openpyxl.load_workbook(usersFile)
+    usersWb = openpyxl.load_workbook(userFilePath + usersFile)
     print"loaded"
     usersSheet = usersWb.get_sheet_by_name("Sheet 1")
     print"sheet 1"
