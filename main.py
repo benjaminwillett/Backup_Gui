@@ -111,7 +111,8 @@ except:
     message = "could not import users from spreadsheet"
     time.sleep(1)
 
-
+print(usersSheet)
+time.sleep(300)
 userRowCount = 0
 generator = usersSheet
 columnA = generator.columns[0]
