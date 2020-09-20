@@ -4,6 +4,9 @@
 # To use this an SMS service is required.
 # Import contacts from contacts spreadsheet
 from flask import Flask, request, render_template, flash, redirect
+from flask.ext.wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
 from flask_script import Manager
 import time
 import sys
@@ -19,14 +22,16 @@ from colours import colour
 from celery import Celery
 import os
 import threading
+import database
+
 
 print "loading global variables!!"
 time.sleep(1)
 ftpserver = "localhost"
-ftpuser = ""
-ftppass = ""
-user = "test"
-pwd1 = "cisco"
+ftpuser = "benwillett"
+ftppass = "Burton!123"
+user = "09477258"
+pwd1 = "SkiCity3192!"
 #pwd2 = "privilege_exec_mode_password"
 startup = "startup-config"
 running = "running-config"
@@ -68,6 +73,7 @@ print "Connecting to Mail host " + mailHost + ", please wait!!"
 
 app = Flask(__name__)
 manager = Manager(app)
+app.config['SECRET_KEY'] = 'SkiCity3192!'
 
 y = dict()
 users = dict()
@@ -184,9 +190,14 @@ class myThread (threading.Thread):
         self.counter = counter
     def run(self):
         print "Starting " + self.name
-        getconfig()
+        for ip in ipList:
+            getconfig(ip)
         print "Exiting " + self.name
 
+
+# class NameForm(Form):
+#     name = StringField('What is your name?', validators=[Datarequired()])
+#     submit = SubmitField('Submit')
 
 
 @app.route('/' , methods=['GET','POST'])
@@ -268,19 +279,29 @@ def addUser():
 
 @app.route('/deleteadmin', methods=['GET', 'POST'])
 def deleteadmin():
-
+    global users
+    global credentialsU
+    global session
     deleteA = request.form['DELETE']
-    print(deleteA)
-    # x = False
-    # count = 0
-    # while x == False:
-    #     for each in users['email']:
-    #         if each == deletA:
-    #             # users['email'].remove(deleteA)
-    #             print("tryed to delete")
-    #             x = True
-    #     count += 1
-    return render_template('admin.html')
+    print(deleteA + " in deleteA variable")
+    x = False
+    count = 0
+    while x == False:
+        print("at start of while loop")
+        for each in users['EMAIL']:
+            print(each)
+            if each == deleteA:
+                users['EMAIL'].remove(deleteA)
+                print("tried to delete")
+                x = True
+            else:
+                pass
+        count += 1
+    print("admin")
+    if session == True:
+        return redirect('/admin')
+    else:
+        return redirect('/')
 
 
 @app.route('/submituser', methods=['GET', 'POST'])
@@ -308,13 +329,13 @@ def submituser():
     users['COUNTRY'].append(country)
     users['POSTCODE'].append(postCode)
 
+    print(gender,country,postcode)
     return render_template('login.html', ERROR=error)
+
 
 @app.route('/fileimport' , methods=['POST'])
 def fileImport():
-    global spreadsheetPath
-    global spreadsheet
-    print("file import")
+
     fileImport = request.form['IMPORT']
 
     spreadsheet = fileImport
@@ -339,7 +360,7 @@ def fileImport():
         time.sleep(1)
         wb = openpyxl.load_workbook(spreadsheetPath + spreadsheet)
         print"loaded"
-        sheet = wb.get_sheet_by_name("Sheet 1")
+        sheet = wb.get_sheet_by_name("Sheet1")
         print"sheet 1"
     except:
         message = "could not import devices from spreadsheet"
@@ -426,21 +447,41 @@ def message():
     return redirect('/uat')
 
 
-def getconfig():
+def sshconnect(ip):
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(ip, username=user, password=pwd1)
+    # inventory[ipAddresses]['name'] = "empty"
+    remote_conn = client.invoke_shell()
+    print("Interactive SSH session established")
+     # Strip the initial router prompt
+    output = remote_conn.recv(1000)
+    # See what we have
+    print output
+    # Turn off paging
+    #disable_paging(remote_conn)
+    # Now let's try to send the router a command
+    remote_conn.send("\n")
+    # Wait for the command to complete
+    time.sleep(2)
+    output = remote_conn.recv(1100)
+    print output
+
+
+def getconfig(ip):
     global y
     global ipList, emailList, startup, running, ftpuser, ftppass, ftpserver, startUnc, runUnc
 
 
-    for each in ipList:
-        try:
-            print("Backing up device " + each)
-            cmd1 = "en"
-            cmd2 = "copy " + startup + " ftp://" + ftpuser + ":" + ftppass + "@" + ftpserver + startUnc + each + ".txt"
-            cmd3 = "copy " + running + " ftp://" + ftpuser + ":" + ftppass + "@" + ftpserver + runUnc + each + ".txt"
+    try:
+        print("Backing up device " + ip)
+        cmd1 = "en"
+        cmd2 = "copy " + startup + " ftp://" + ftpuser + ":" + ftppass + "@" + ftpserver + startUnc + ip + ".txt"
+        cmd3 = "copy " + running + " ftp://" + ftpuser + ":" + ftppass + "@" + ftpserver + runUnc + ip + ".txt"
 
+        try:
+            telnet = telnetlib.Telnet(ip, 10)
             try:
-                telnet = telnetlib.Telnet(each, 10)
-                # telnet.set_debuglevel(5)
                 time.sleep(1)
                 telnet.write(user.encode('ascii') + b"\n")
                 time.sleep(1)
@@ -462,16 +503,24 @@ def getconfig():
                 time.sleep(1)
                 telnet.close()
                 time.sleep(1)
-                print "Successfully transfered config for " + each
-                y['messageSent'].append(each)
+                print "Successfully transfered config for " + ip
+                y['messageSent'].append(ip)
             except:
-                print "Unable to telnet into " + each
-                y['backupFailed'].append(each)
+                print "Unable to authenticate to " + ip
+                y['backupFailed'].append(ip)
+                pass
+        except:
+            print "Unable to telnet into " + ip
+            try:
+                print "Attempting to SSH into " + ip
+                sshconnect(ip)
+            except:
+                print "Unable to SSH into " + ip
+                y['backupFailed'].append(ip)
                 pass
 
-
-        except:
-            pass
+    except:
+        pass
 
     # for each in emailList:
     #     try:
